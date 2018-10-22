@@ -53,6 +53,3 @@ function isOddOrEven(x) {
             break;
     }
 }
-
-isOddOrEven(123)
-isOddOrEven(2048)
