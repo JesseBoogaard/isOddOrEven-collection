@@ -1,3 +1,5 @@
+//Jesse Boogaard 2018
+
 function isOddOrEven(x) {
     let numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
     let arr = x.toString().split("")
@@ -51,6 +53,3 @@ function isOddOrEven(x) {
             break;
     }
 }
-
-isOddOrEven(123)
-isOddOrEven(2048)
