@@ -1,3 +1,5 @@
+# the check itself runs at O(1) efficiency. You can't beat this algo. 
+
 def is_odd_or_even(num=False):
     is_even = False
     if not num:
