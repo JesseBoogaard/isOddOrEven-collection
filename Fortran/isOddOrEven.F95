@@ -1,20 +1,20 @@
-program isOddOrEven
-
+! Jesse Boogaard 2018
 ! This tells you if a number is odd or even
-    implicit none
-
-! Type declarations
-    Integer :: input, mod, result
-    Logical :: isOdd
-
-
-! Executable statements
-    input = 1233455243
-    mod = 2
-    result = modulo(input, mod)
-    IF (result == 0) THEN
-        print *, "is even"
-    ELSE IF (result == 1) THEN
-        print *, "is odd"
+RECURSIVE INTEGER FUNCTION isOddOrEven(x) RESULT(y)
+    INTEGER :: x
+    IF(x == 0) THEN
+        print *, 'is even.'
+    ELSE IF(x == 1) THEN
+        print *, 'is odd.'
+    ELSE
+        y = isOddOrEven(x - 2)
     END IF
-end program isOddOrEven
+END FUNCTION isOddOrEven
+
+PROGRAM main
+    INTEGER :: input, result
+    print *, 'Enter a number below 86844'
+    read *, input
+    print *, 'You requested', input
+    result = isOddOrEven(input)
+END PROGRAM main
