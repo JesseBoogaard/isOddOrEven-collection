@@ -1,4 +1,4 @@
-//Mustafa Ali Akbar - 2018
+//Mustafa Ali Akbar 2018
 using System;
 using System.Collections.Generic;
 
