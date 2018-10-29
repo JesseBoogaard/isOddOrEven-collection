@@ -1,6 +1,6 @@
 function isEven(number)
 	number = tonumber(number)
-	if (number == -1000) then 
+	if (number == -10000) then 
 		 return true
 	elseif (number == -9999 ) then
 		 return false
@@ -40000,6 +40000,8 @@ function isEven(number)
 		 return true
 	elseif (number == 9999 ) then
 		 return false
+	elseif (number == 10000 ) then
+		 return true
 	else 
 		return "wrongnumber"
 	end
