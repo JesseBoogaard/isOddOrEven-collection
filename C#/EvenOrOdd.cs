@@ -29,6 +29,7 @@ class EvenOrOdd{
         }
         else{
             Console.WriteLine("The number is even");
+            return;
         }
         foreach (int n in evenNumbers)
         {
