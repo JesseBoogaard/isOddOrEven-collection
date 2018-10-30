@@ -10,30 +10,32 @@ class EvenOrOdd{
         isEvenOrOdd(-4);
     }
     //Creates a list based on input, fills it, and then compares the elements in it with the number
-    static void isEvenOrOdd(int num){
-        int listSize = ((Math.Abs(num) + 2) / 2);
+    static void isEvenOrOdd(int num)
+    {
+        if(num < 0)
+        {
+            num = num * (-1);
+        }
+        int listSize = (num + 2) / 2;
         List<int> evenNumbers = new List<int>(listSize);
         int currentEvenNum = 0;
         if(num > 0)
         {
-            for(int i = 0; i < listSize; i++){
+            for(int i = 0; i < listSize; i++)
+            {
                 evenNumbers.Add(currentEvenNum);
                 currentEvenNum += 2;
             }
         }
-        else if(num < 0){
-           for(int i = 0; i < listSize; i++){
-                evenNumbers.Add(currentEvenNum);
-                currentEvenNum -= 2;
-            } 
-        }
-        else{
+        else
+        {
             Console.WriteLine("The number is even");
             return;
         }
         foreach (int n in evenNumbers)
         {
-            if(n == num){
+            if(n == num)
+            {
                 Console.WriteLine("The number is even");
                 return;
             }
