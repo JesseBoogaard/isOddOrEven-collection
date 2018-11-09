@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <assert.h>
 
 int isOdd(long num) {
     char s[2];
