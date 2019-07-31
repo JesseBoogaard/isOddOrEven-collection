@@ -40,7 +40,3 @@ def is_odd_or_even(num=False):
         return "even"
     else:
         return "false"
-
-is_odd_or_even()
-is_odd_or_even(8)
-print(is_odd_or_even())
