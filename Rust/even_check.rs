@@ -1,7 +1,7 @@
 // Script for determing if an integer is even or odd
 // It attempts to split the integer into two piles
 // If the piles are the same size, the integer is even
-// Runtime appears to be O(n!)
+// Runtime is O(n^2) since incrementing n by 1 doubles computations
 // Don't use on numbers beyond 29 or so in absolute value
 
 use std::io;
