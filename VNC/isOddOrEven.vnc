@@ -1,0 +1,6 @@
+Tinh a = %num% %% 2
+Neu %a% == 0 (
+	InRa This is even
+) KhongThi (
+	InRa This is odd
+)
