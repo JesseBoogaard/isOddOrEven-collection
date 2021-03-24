@@ -1,0 +1,14 @@
+function isEven(i)
+	if type(i) == "number" then
+		return i % 2 == 0
+	elseif type(i) == "string" then
+		i = tonumber(i)
+		if i then
+			return i % 2 == 0
+		else
+			error("Error type: textual string")
+		end
+	else
+		error("Error type: " .. type(i))
+	end
+end
