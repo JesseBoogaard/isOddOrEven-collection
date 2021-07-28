@@ -1,12 +1,13 @@
 function isEven(i)
-	if type(i) == "number" then
-		return i % 2 == 0
-	elseif type(i) == "string" then
+	if type(i) == "string" then
 		i = tonumber(i)
-		if i then
+		assert(i, "Error type: textual string")
+	end
+	if type(i) == "number" then
+		if i == math.floor(i) then
 			return i % 2 == 0
 		else
-			error("Error type: textual string")
+			error("Decimal has no odevity")
 		end
 	else
 		error("Error type: " .. type(i))
