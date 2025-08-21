@@ -1,0 +1,3 @@
+[submodule "Rust/rust_bitcoin_style_ai_iseven"]
+	path = Rust/rust_bitcoin_style_ai_iseven
+	url = https://github.com/solst-ice/rust_bitcoin_style_ai_iseven.git
