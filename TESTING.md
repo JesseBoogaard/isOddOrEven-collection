@@ -2,6 +2,100 @@
 
 This document describes how to run the unit tests for each module in this repository.
 
+## Automated Testing with GitHub Actions
+
+All tests are automatically run via GitHub Actions on every push and pull request. The workflow file is located at `.github/workflows/run-tests.yml`.
+
+### Viewing Test Results
+
+1. Go to the **Actions** tab in the GitHub repository
+2. Click on the latest workflow run
+3. View the results for each test suite (Python, JavaScript, Rust, Dart)
+
+### How Test Automation Works
+
+The GitHub Actions workflow automatically discovers and runs all tests following these naming conventions:
+- **Python**: All files matching `test_*.py` in the `Python/` directory
+- **JavaScript**: All files matching `test_*.js` in the `JS/` directory
+- **Rust**: All files matching `*_test.rs` in the `Rust/` directory
+- **Dart**: All files matching `test_*.dart` in the `Dart/` directory
+
+## Adding New Tests
+
+To add a new test that will be automatically picked up by GitHub Actions:
+
+### Python
+1. Create a new file in `Python/` directory with name `test_<module_name>.py`
+2. Use Python's `unittest` framework
+3. The test will automatically run in CI
+
+Example:
+```python
+import unittest
+from your_module import your_function
+
+class TestYourModule(unittest.TestCase):
+    def test_something(self):
+        self.assertEqual(your_function(2), expected_result)
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+### JavaScript
+1. Create a new file in `JS/` directory with name `test_<module_name>.js`
+2. Use Node.js's built-in `assert` module
+3. The test will automatically run in CI
+
+Example:
+```javascript
+const assert = require('assert');
+
+function yourFunction(num) {
+    // Your implementation
+}
+
+console.log('Testing your module...');
+assert.strictEqual(yourFunction(2), expected_result);
+console.log('✓ All tests passed!');
+```
+
+### Rust
+1. Create a new file in `Rust/` directory with name `<module_name>_test.rs`
+2. Use Rust's standard test assertions
+3. The test will automatically compile and run in CI
+
+Example:
+```rust
+fn your_function(n: i32) -> bool {
+    // Your implementation
+}
+
+fn main() {
+    println!("Testing your module...");
+    assert!(your_function(2), "2 should return true");
+    println!("✓ All tests passed!");
+}
+```
+
+### Dart
+1. Create a new file in `Dart/` directory with name `test_<module_name>.dart`
+2. Use Dart's built-in assertions
+3. The test will automatically run in CI
+
+Example:
+```dart
+import 'your_module.dart';
+
+void main() {
+  print('Testing your module...');
+  assert(yourFunction(2) == expected_result);
+  print('✓ All tests passed!');
+}
+```
+
+## Running Tests Locally
+
 ## Python Tests
 
 The Python tests use the built-in `unittest` framework.
