@@ -16,7 +16,7 @@ def isEven(number):
         lastNum = number[i]
 
     loopGoingCondition = "True"
-    while loopGoingCondition == "True" and loopGoingCondition == "False":
+    while loopGoingCondition == "True":
         if(lastNum != "1" and lastNum != "0"):
             lastNum = str(int(lastNum)-2)
         else:
