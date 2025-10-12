@@ -1,0 +1,92 @@
+name: Run All Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  python-tests:
+    name: Python Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    
+    - name: Run Python tests
+      run: |
+        cd Python
+        python -m unittest discover -v -p "test_*.py"
+  
+  javascript-tests:
+    name: JavaScript Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18.x'
+    
+    - name: Run JavaScript tests
+      run: |
+        cd JS
+        for test_file in test_*.js; do
+          echo "Running $test_file..."
+          node "$test_file"
+        done
+  
+  rust-tests:
+    name: Rust Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+    
+    - name: Run Rust tests
+      run: |
+        cd Rust
+        for test_file in *_test.rs; do
+          if [ -f "$test_file" ]; then
+            echo "Compiling and running $test_file..."
+            rustc "$test_file" && ./"${test_file%.rs}"
+            rm -f "${test_file%.rs}"
+          fi
+        done
+  
+  dart-tests:
+    name: Dart Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Dart
+      uses: dart-lang/setup-dart@v1
+      with:
+        sdk: stable
+    
+    - name: Run Dart tests
+      run: |
+        cd Dart
+        for test_file in test_*.dart; do
+          if [ -f "$test_file" ]; then
+            echo "Running $test_file..."
+            dart "$test_file"
+          fi
+        done
